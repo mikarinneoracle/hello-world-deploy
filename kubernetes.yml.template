@@ -35,23 +35,22 @@ metadata:
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   ports:
-  - port: 30000
+  - port: 8090
     targetPort: 8080
   selector:
     app: hello-world-dep
     commit: ${WERCKER_GIT_COMMIT}
-  type: LoadBalancer
 ---
-#apiVersion: extensions/v1beta1
-#kind: Ingress
-#metadata:
- # name: hello-world-ingress
-#spec:
- # rules:
-  #- host: hello-world.example.domain
-   # http:
-    #  paths:
-     # - path:
-      #  backend:
-       #   serviceName: hello-world
-# servicePort: 8080
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+spec:
+  rules:
+  - host: hello-world.oow17.demo.wercker.com
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: hello-world
+ servicePort: 8090
