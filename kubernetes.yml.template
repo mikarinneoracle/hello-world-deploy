@@ -1,26 +1,26 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world-deploy
+  name: hello-world-dep
   labels:
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world-deploy
+      app: hello-world-dep
   template:
     metadata:
       labels:
-        app: hello-world-deploy
+        app: hello-world-dep
         commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
-      - name: hello-world-deploy
+      - name: hello-world-dep
         image: ${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - name: hello-world-deploy
+        - name: hello-world-dep
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
@@ -29,16 +29,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world-deploy
+  name: hello-world-dep
   labels:
-    app: hello-world-deploy
+    app: hello-world-dep
     commit: ${WERCKER_GIT_COMMIT}
 spec:
   ports:
   - port: 30000
     targetPort: 8080
   selector:
-    app: hello-world-deploy
+    app: hello-world-dep
     commit: ${WERCKER_GIT_COMMIT}
   type: LoadBalancer
 ---
