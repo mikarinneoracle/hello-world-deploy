@@ -24,7 +24,7 @@ spec:
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
-        - name: wercker          
+        - name: wercker-demo
 ---
 apiVersion: v1
 kind: Service
@@ -52,5 +52,5 @@ spec:
       paths:
       - path:
         backend:
-          serviceName: hello-world
- servicePort: 8090
+          serviceName: hello-world-dep
+          servicePort: 8090
