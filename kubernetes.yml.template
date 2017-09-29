@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - name: hello-world-dep
-          containerPort: 8080
+          containerPort: 8090
           protocol: TCP
       imagePullSecrets:
         - name: wercker-demo
@@ -36,7 +36,7 @@ metadata:
 spec:
   ports:
   - port: 8090
-    targetPort: 8080
+    targetPort: 8090
   selector:
     app: hello-world-dep
     commit: ${WERCKER_GIT_COMMIT}
