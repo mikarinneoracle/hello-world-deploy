@@ -50,7 +50,7 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
-  - host: hello-world.oow17.demo.wercker.com
+  - host: hello-world.oow17demos.demo.wercker.com
     http:
       paths:
       - path:
