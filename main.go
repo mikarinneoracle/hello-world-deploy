@@ -8,7 +8,7 @@ import (
 )
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello Open World -  Hello Loreli!"))
+	w.Write([]byte("Hello Open World -  Hello Jurgen!"))
 }
 
 func main() {
