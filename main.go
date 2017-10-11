@@ -8,7 +8,7 @@ import (
 )
 
 func HelloWorld(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Testing ... "))
+	w.Write([]byte("Post Open World!"))
 }
 
 func main() {
@@ -16,4 +16,3 @@ func main() {
 	http.HandleFunc("/", HelloWorld)
 	http.ListenAndServe(":8090", handlers.LoggingHandler(os.Stdout, http.DefaultServeMux))
 }
-
