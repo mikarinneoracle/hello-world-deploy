@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello-world-dep
-        image: hub.docker.com/mikarinneoracle/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+        image: mikarinneoracle/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
         - name: hello-world-dep
