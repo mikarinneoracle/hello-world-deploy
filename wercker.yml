@@ -13,6 +13,8 @@ build:
 push-release:
   steps:
     - internal/docker-push:
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         working-dir: /pipeline/source
         ports: "8080"
